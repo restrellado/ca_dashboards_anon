@@ -19,19 +19,3 @@ anon_dash <- function(a, b = NULL, c = NULL) {
            districtname = fct_anon(districtname, "district_"), 
            countyname = fct_anon(countyname, "county_"))
 }
-
-#------------------------------------------------------------------------------
-
-# Try with three datasets 
-db <- anon_dash(
-  "data/PaloAltoUnifiedmath.txt", 
-  "data/SanFranciscoUnifiedmath.txt", 
-  "data/LongBeachUnifiedmath.txt"
-  ) %>% 
-  write_tsv(., "~/Documents/github/data_for_blog/Somedistrictmath_2.txt")
-
-#------------------------------------------------------------------------------
-
-# Try with one dataset 
-db <- anon_dash("data/PaloAltoUnifiedmath.txt") %>% 
-  write_tsv(., "~/Documents/github/data_for_blog/Somedistrictmath.txt")
