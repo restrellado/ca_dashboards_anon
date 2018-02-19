@@ -9,7 +9,7 @@ anon_dash <- function(a, b = NULL, c = NULL) {
   #
   #  Returns: A tibble 
   as.list(c(a, b, c)) %>% 
-    map(read_tsv) %>% 
+    map(~read_tsv(., col_types = cols(cds = col_character()))) %>% 
     bind_rows() %>% 
     # Change county and district levels to a single level 
     mutate(districtname = "x", countyname = "x") %>% 
